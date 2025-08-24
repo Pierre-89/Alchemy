@@ -1,0 +1,18 @@
+.page {
+  background: url("../../public/images/parchment.jpg.jpg") no-repeat center center;
+  background-size: cover;
+  width: 462px;
+  min-height: 314px;
+  padding: 30px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  border: 2px solid #482816;
+  font-family: "Cinzel", serif;
+}
+
+.card-img {
+    width: 100px;
+}
+
+.potions ul {
+  list-style: none;
+}

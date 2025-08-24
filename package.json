@@ -1,0 +1,11 @@
+{
+  "name": "alchimie-root",
+  "private": true,
+  "workspaces": ["frontend", "backend"],
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "scripts": {
+    "dev": "concurrently -n front,back -c auto \"npm -w ./frontend run dev\" \"npm -w ./backend run dev\""
+  }
+}
