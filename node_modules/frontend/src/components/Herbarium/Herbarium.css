@@ -1,16 +1,11 @@
 
 
-.page {
-  background: url("../../public/images/parchment.jpg.jpg") no-repeat center center;
-  background-size: cover;
-  width: 462px;
-  min-height: 314px;
-  padding: 30px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
-  border: 2px solid #482816;
-  font-family: "Cinzel", serif; /* un style médiéval */
+.book {
+  background: url("../../../public/images/book.png");
+  background-repeat: no-repeat;
+  width: 665px;
+  height: 440px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
-.card-img {
-    width: 100px;
-}

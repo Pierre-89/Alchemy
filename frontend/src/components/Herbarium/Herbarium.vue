@@ -12,15 +12,17 @@ interface Herb {
 const items = ref<Herb[]>([]);
 const loading = ref(true);
 const error = ref<string | null>(null);
+const currentId = ref(1);
 
 async function load() {
 loading.value = true;
 error.value = null;
 
 try {
-  const res = await fetch("/api/herb/");
+  const res = await fetch(`/api/herb/${currentId.value}`);
   if(!res.ok) throw new Error(`HTTP ${res.status}`);
-  items.value = (await res.json()) as Herb[];
+  const herb = await res.json() as Herb;
+  items.value = [herb];
   } catch (e:any) {
   error.value = e?.message ??"Erreur inconnue";
   } finally {
@@ -33,15 +35,11 @@ onMounted(load);
 
 
 <template>
-  <div class="herbarium">
-    <div v-for="h in items" :key="h.id" class="page">
-      <div class="page-content">
-        <img v-if="h.image1" :src="h.image1" :alt="h.name" class="card-img" />
-        <h2 class="card-title">{{ h.name }}</h2>
-        <p class="card-desc">{{ h.description }}</p>
-        
-      </div>
-    </div>
+  <div v-if="items.length" class="book">
+    <div class="left-page"></div>
+    <div class="right-page"><h1>{{ items[0].name }}</h1>
+    <p>{{ items[0].description}}</p></div>
+    
   </div>
 </template>
 
