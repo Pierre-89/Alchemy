@@ -36,7 +36,9 @@ onMounted(load);
 
 <template>
   <div v-if="items.length" class="book">
-    <div class="left-page"></div>
+    <div class="left-page">
+      <img :src="items[0].image1" alt="Image"/> 
+    </div>
     <div class="right-page"><h1>{{ items[0].name }}</h1>
     <p>{{ items[0].description}}</p></div>
     

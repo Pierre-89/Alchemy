@@ -1,3 +1,6 @@
+h1, h2, p {
+  font-family: "Cinzel", serif;
+}
 
 
 .book {
@@ -7,5 +10,36 @@
   height: 440px;
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+
+.left-page {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.left-page img {
+  width: 262px;
+  height: auto;
+}
+
+.right-page {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 81px;
+  width: 259px;
+  padding-left: 22px;
+}
+
+h1 {
+  color: rgba(59, 0, 0, 0.99);
+  font-size: larger;
+}
+
+p {
+  color: rgba(59, 0, 0, 0.99);
+  font-size: medium;
 }
 
