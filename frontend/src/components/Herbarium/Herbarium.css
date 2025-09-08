@@ -20,8 +20,18 @@ h1, h2, p {
 }
 
 .left-page img {
+  display: flex;
+  flex-direction: column;
   width: 262px;
   height: auto;
+  padding-top: 127px;
+}
+
+
+.fleche-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain; 
 }
 
 .right-page {
@@ -31,6 +41,10 @@ h1, h2, p {
   padding-top: 81px;
   width: 259px;
   padding-left: 22px;
+}
+
+.pagination-right {
+  margin-top: auto;
 }
 
 h1 {

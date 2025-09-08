@@ -13,6 +13,7 @@ const items = ref<Herb[]>([]);
 const loading = ref(true);
 const error = ref<string | null>(null);
 const currentId = ref(1);
+const totalPages = ref(4);
 
 async function load() {
 loading.value = true;
@@ -29,6 +30,20 @@ try {
   loading.value = false;
   }
 }
+
+function prevHerb() {
+  if (currentId.value > 1) {
+    currentId.value--;
+    load();
+  }
+}
+
+function nextherb() {
+  if (currentId.value < totalPages.value) {
+    currentId.value++;
+    load();
+  }
+}
 onMounted(load);
 </script>
 
@@ -38,9 +53,19 @@ onMounted(load);
   <div v-if="items.length" class="book">
     <div class="left-page">
       <img :src="items[0].image1" alt="Image"/> 
+      <div class="pagination-left">
+      <button @click="prevHerb" :disabled="currentId === 1"><img src="/images/fleche-gauche.png" alt="Page précédente" class="fleche-icon" /></button>
+    </div>
     </div>
     <div class="right-page"><h1>{{ items[0].name }}</h1>
-    <p>{{ items[0].description}}</p></div>
+    <p>{{ items[0].description}}</p>
+  <div class="pagination-right">  
+      <button @click="nextherb" :disabled="currentId === totalPages">→</button>
+    </div>  
+    
+  </div>
+    
+      <span>{{ currentId }} / {{ totalPages }}</span>
     
   </div>
 </template>
