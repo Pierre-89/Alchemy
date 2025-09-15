@@ -51,21 +51,19 @@ onMounted(load);
 
 <template>
   <div v-if="items.length" class="book">
-    <div class="left-page">
-      <img :src="items[0].image1" alt="Image"/> 
-      <div class="pagination-left">
-      <button @click="prevHerb" :disabled="currentId === 1"><img src="/images/fleche-gauche.png" alt="Page précédente" class="fleche-icon" /></button>
+    <div class="left-page" v-for= "(plante, index) in items" :key="plante.id">
+      <img :src="plante.image1" :alt="plante.name" class="plante" :class="plante.slug" />
     </div>
-    </div>
+  
     <div class="right-page"><h1>{{ items[0].name }}</h1>
     <p>{{ items[0].description}}</p>
-  <div class="pagination-right">  
-      <button @click="nextherb" :disabled="currentId === totalPages">→</button>
-    </div>  
     
+      
   </div>
-    
-      <span>{{ currentId }} / {{ totalPages }}</span>
+    <button @click="nextherb" :disabled="currentId === totalPages" class="next-page">
+      </button>
+      <button @click="prevHerb" :disabled="currentId === 1" class="pre-page"></button>
+     
     
   </div>
 </template>

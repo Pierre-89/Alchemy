@@ -5,19 +5,21 @@ USE alchemy;
 CREATE TABLE ingredients (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR (100) NOT NULL,
+    slug VARCHAR(50) NOT NULL,
     description TEXT NOT NULL,
     image1 VARCHAR(255) NOT NULL
 );
 
 INSERT INTO ingredients (
 name,
+slug,
 description, 
 image1
 ) VALUES
-("Chardon couronné", "Le chardon pique un peu, ça lui donne un petit côté agressif qui n'enlève rien à son charme. En consommer peut faciliter un peu trop la digestion.", "/images/chardon.png"),
-("Fleur d'Irisse", "Cette fleur est si légère qu'il est difficile de croire en sa rigidité et sa résistance.", "/images/iriss.png"),
-("Fleur de lin", "Cette fleur est si légère qu'il est difficile de croire en sa rigidité et sa résistance.", "/images/lin.png"),
-("Feuille de menthe", "La feuille de menthe donne un arôme naturel à tous vos mets.", "/images/menthe.png");
+("Chardon couronné", "chardon", "Le chardon pique un peu, ça lui donne un petit côté agressif qui n'enlève rien à son charme. En consommer peut faciliter un peu trop la digestion.", "/images/chardon.png"),
+("Fleur d'Irisse", "iriss", "Cette fleur est si légère qu'il est difficile de croire en sa rigidité et sa résistance.", "/images/iriss.png"),
+("Fleur de lin", "lin", "Cette fleur est si légère qu'il est difficile de croire en sa rigidité et sa résistance.", "/images/lin.png"),
+("Feuille de menthe", "menthe", "La feuille de menthe donne un arôme naturel à tous vos mets.", "/images/menthe.png");
 
 
 CREATE TABLE potions (
